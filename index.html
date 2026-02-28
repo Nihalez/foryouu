@@ -1,99 +1,64 @@
-<!DOCTYPE html>
-<html>
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html><html>
 <head>
-<title>System Breach</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Muskhan ❤️</title><link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Parisienne&family=Poppins:wght@300;600&display=swap" rel="stylesheet"><style>
+body{margin:0;font-family:'Poppins',sans-serif;color:white;text-align:center;overflow:hidden}
 
-<style>
-body{
-    background:black;
-    color:#00ff00;
-    font-family:monospace;
-    text-align:center;
-    overflow:hidden;
+/* VIDEO BACKGROUND */
+video{
+ position:fixed;
+ right:0;bottom:0;
+ min-width:100%;min-height:100%;
+ z-index:-1;
+ object-fit:cover;
 }
 
-h1{
-    animation: glitch 1s infinite;
-    font-size:40px;
-}
+h1{font-family:'Great Vibes',cursive;font-size:55px;text-shadow:0 0 30px pink;animation:glow 2s infinite alternate}
+@keyframes glow{from{text-shadow:0 0 10px white}to{text-shadow:0 0 40px red}}
 
-@keyframes glitch{
-    0%{color:#00ff00;}
-    50%{color:red;}
-    100%{color:#00ff00;}
-}
+.page{display:none;padding:20px}
+.secretBtn{position:fixed;bottom:20px;right:20px;background:black;color:white;padding:10px;border-radius:20px;opacity:0.4;cursor:pointer}
+.secretBtn:hover{opacity:1}
 
-.warning{
-    font-size:25px;
-    color:red;
-    animation: blink 1s infinite;
-}
+/* Birthday balloons */
+.balloon{position:absolute;width:50px;height:70px;background:red;border-radius:50%;animation:rise 8s linear infinite}
+@keyframes rise{0%{transform:translateY(100vh)}100%{transform:translateY(-200px)}}
 
-@keyframes blink{
-    50%{opacity:0;}
-}
+/* Hearts */
+.heart{position:absolute;font-size:25px;animation:rise 6s linear infinite}
 
-.box{
-    border:2px solid #00ff00;
-    padding:20px;
-    margin:20px;
-}
-</style>
-</head>
+/* Letter page style */
+.letter{font-family:'Parisienne',cursive;font-size:24px;max-width:600px;margin:auto;background:rgba(0,0,0,0.5);padding:25px;border-radius:20px}
 
-<body>
-
-<audio autoplay loop>
-  <source src="audio11.mp3" type="audio/mpeg">
+</style></head>
+<body><!-- Background Video Replace video.mp4 with downloaded short --><video autoplay muted loop>
+ <source src="video.mp4" type="video/mp4">
+</video><!-- Music --><audio id="bgm" loop>
+<source src="audio.mp3" type="audio/mpeg">
 </audio>
+<script>window.addEventListener('click',()=>{bgm.play()},{once:true});</script><!-- MAIN PAGE --><div id="main" class="page" style="display:block">
+<h1>🎂 Many Many Happy Returns Of The Day Muskhaneeee ❤️</h1>
+<p style="font-size:22px">✨ May your smile shine forever ✨</p><!-- Balloons --><div class="balloon" style="left:10%"></div>
+<div class="balloon" style="left:40%;background:yellow"></div>
+<div class="balloon" style="left:70%;background:pink"></div><!-- Hearts --><div class="heart" style="left:20%">❤️</div>
+<div class="heart" style="left:60%">💖</div><button class="secretBtn" onclick="askPass()">🔐 Secret 🤍</button>
 
-<h1>⚠ SYSTEM BREACH</h1>
-
-<div class="warning">
-ALERT: <span id="name">TARGET</span> DEVICE MONITORING…
+</div><!-- LETTER PAGE --><div id="letterPage" class="page">
+<h1>💌 To Muskhan</h1>
+<div class="letter">
+Dear Muskhan ❤️<br><br>
+On your birthday, I just want to say thank you for existing. You make my days brighter, my nights calmer, and my dreams sweeter. Every moment with you feels magical. I don't know what the future holds… but I know my heart chose you quietly and forever. Happy Birthday to the girl who lives in my dreams. ❤️<br><br>
+Forever yours… 💞
 </div>
-
-<div class="box">
-Fake IP Detected: <span id="ip"></span>
-</div>
-
-<div class="box">
-Camera Scan Initiated...
-<br>
-Scanning Face Pattern...
-<br>
-Analyzing Data...
-</div>
-
-<div id="count"></div>
-
-<script>
-// 👉 Put her name here
-document.getElementById("name").innerHTML = "EZzy";
-
-// Fake IP generator
-function fakeIP(){
-    return Math.floor(Math.random()*255)+"."+
-           Math.floor(Math.random()*255)+"."+
-           Math.floor(Math.random()*255)+"."+
-           Math.floor(Math.random()*255);
+</div><script>
+function askPass(){
+ let p=prompt('Hint: what you call me every time ⏰');
+ if(p && p.toLowerCase()==='musku'){
+   document.getElementById('main').style.display='none';
+   document.getElementById('letterPage').style.display='block';
+   document.body.style.overflow='auto';
+ }else alert('Wrong passcode 😜');
 }
-document.getElementById("ip").innerHTML = fakeIP();
-
-// Countdown
-let t=5;
-setInterval(()=>{
-    document.getElementById("count").innerHTML =
-    "System Lock in "+t+" seconds...";
-    t--;
-    if(t<0) t=10;
-},1000);
-
-// Random popup
-setInterval(()=>{
-alert("⚠ MOVE ON MODE ACTIVATED");
-},8000);
-</script>
-
-</body>
+</script></body>
 </html>
