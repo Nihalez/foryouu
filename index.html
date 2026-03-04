@@ -1,61 +1,103 @@
-<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html><html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Muskhan ❤️</title><link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Parisienne&family=Poppins:wght@300;600&display=swap" rel="stylesheet"><style>
-body{margin:0;font-family:'Poppins',sans-serif;color:white;text-align:center;overflow:hidden}
+<title>System Error</title>
 
-/* VIDEO BACKGROUND */
-video{
- position:fixed;
- right:0;bottom:0;
- min-width:100%;min-height:100%;
- z-index:-1;
- object-fit:cover;
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Share Tech Mono', monospace;
+    color: #00ff88;
+    overflow: hidden;
 }
 
-h1{font-family:'Great Vibes',cursive;font-size:55px;text-shadow:0 0 30px pink;animation:glow 2s infinite alternate}
-@keyframes glow{from{text-shadow:0 0 10px white}to{text-shadow:0 0 40px red}}
+/* Animated background lines */
+body::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0,255,120,0.08) 0px,
+        rgba(0,255,120,0.08) 2px,
+        transparent 2px,
+        transparent 4px
+    );
+    animation: moveBg 5s linear infinite;
+}
 
-.page{display:none;padding:20px}
-.secretBtn{position:fixed;bottom:20px;right:20px;background:black;color:white;padding:10px;border-radius:20px;opacity:0.4;cursor:pointer}
-.secretBtn:hover{opacity:1}
+@keyframes moveBg {
+    from { transform: translateY(0); }
+    to { transform: translateY(100px); }
+}
 
+.container {
+    text-align: center;
+    z-index: 2;
+}
 
-/* Hearts */
-.heart{position:absolute;font-size:25px;animation:rise 6s linear infinite}
+h1 {
+    font-size: 70px;
+    animation: glitch 1s infinite;
+}
 
-/* Letter page style */
-.letter{font-family:'Parisienne',cursive;font-size:24px;max-width:600px;margin:auto;background:rgba(0,0,0,0.5);padding:25px;border-radius:20px}
+@keyframes glitch {
+    0% { text-shadow: 3px 3px #003300; }
+    25% { text-shadow: -3px -3px #00ff88; }
+    50% { text-shadow: 3px -3px #00aa55; }
+    75% { text-shadow: -3px 3px #00ff88; }
+    100% { text-shadow: 3px 3px #003300; }
+}
 
-</style></head>
-<body><!-- Background Video Replace video.mp4 with downloaded short --><video autoplay muted loop>
- <source src="videoo.mp4" type="video/mp4">
-</video><!-- Music --><audio id="bgm" loop>
-<source src="audio.mp3" type="audio/mpeg">
-</audio>
-<script>window.addEventListener('click',()=>{bgm.play()},{once:true});</script><!-- MAIN PAGE --><div id="main" class="page" style="display:block">
-/* <h1>🎂 Many Many Happy Returns Of The Day Muskhaneeee ❤️</h1> 
-<p style="font-size:22px">✨ May your smile shine forever ✨</p><!-- Balloons --><div */ class="balloon" style="left:10%"></div>
-<div class="balloon" style="left:40%;background:yellow"></div>
-<div class="balloon" style="left:70%;background:pink"></div><!-- Hearts --><div class="heart" style="left:20%"></div>
-<div class="heart" style="left:60%"></div><button class="secretBtn" onclick="askPass()">🔐 Secret 🤍</button>
+p {
+    margin-top: 10px;
+    font-size: 18px;
+    opacity: 0.8;
+}
 
-</div><!-- LETTER PAGE --><div id="letterPage" class="page">
-<h1>💌 To Muskhan</h1>
-<div class="letter">
-Dear Muskhan ❤️<br><br>
-On your birthday, I just want to say thank you for existing. You make my days brighter, my nights calmer, and my dreams sweeter. Every moment with you feels magical. I don't know what the future holds… but I know my heart chose you quietly and forever. Happy Birthday to the girl who lives in my dreams. ❤️<br><br>
-Forever 𝔑𝔦𝔥𝔞𝔩𝔈ℨ 𝔒𝔣𝔣𝔦𝔠𝔦𝔞𝔩… 💞
+.btn {
+    margin-top: 25px;
+    padding: 10px 30px;
+    border: 2px solid #00ff88;
+    background: transparent;
+    color: #00ff88;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #00ff88;
+    color: black;
+    box-shadow: 0 0 15px #00ff88;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>ACCESS DENIED</h1>
+    <p>Page No Longer Exists.</p>
+    <button class="btn" onclick="showMessage()">Go Back</button>
 </div>
-</div><script>
-function askPass(){
- let p=prompt('Hint: what you call me every time ⏰');
- if(p && p.toLowerCase()==='nihalee'){
-   document.getElementById('main').style.display='none';
-   document.getElementById('letterPage').style.display='block';
-   document.body.style.overflow='auto';
- }else alert('try old password');
+
+<script>
+function showMessage() {
+    alert("Thank you :)");
 }
-</script></body>
+</script>
+
+</body>
 </html>
