@@ -1,102 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>System Error</title>
+    <title>Funny Face Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #222;
+            color: white;
+        }
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+        video {
+            width: 640px;
+            max-width: 90%;
+            border: 4px solid #fff;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
 
-body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Share Tech Mono', monospace;
-    color: #00ff88;
-    overflow: hidden;
-}
-
-/* Animated background lines */
-body::before {
-    content: "";
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background: repeating-linear-gradient(
-        0deg,
-        rgba(0,255,120,0.08) 0px,
-        rgba(0,255,120,0.08) 2px,
-        transparent 2px,
-        transparent 4px
-    );
-    animation: moveBg 5s linear infinite;
-}
-
-@keyframes moveBg {
-    from { transform: translateY(0); }
-    to { transform: translateY(100px); }
-}
-
-.container {
-    text-align: center;
-    z-index: 2;
-}
-
-h1 {
-    font-size: 70px;
-    animation: glitch 1s infinite;
-}
-
-@keyframes glitch {
-    0% { text-shadow: 3px 3px #003300; }
-    25% { text-shadow: -3px -3px #00ff88; }
-    50% { text-shadow: 3px -3px #00aa55; }
-    75% { text-shadow: -3px 3px #00ff88; }
-    100% { text-shadow: 3px 3px #003300; }
-}
-
-p {
-    margin-top: 10px;
-    font-size: 18px;
-    opacity: 0.8;
-}
-
-.btn {
-    margin-top: 25px;
-    padding: 10px 30px;
-    border: 2px solid #00ff88;
-    background: transparent;
-    color: #00ff88;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background: #00ff88;
-    color: black;
-    box-shadow: 0 0 15px #00ff88;
-}
-</style>
+        #comment {
+            font-size: 28px;
+            margin-top: 20px;
+            color: #ffeb3b;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
-    <h1>ACCESS DENIED</h1>
-    <p>Page No Longer Exists.</p>
-    <button class="btn" onclick="showMessage()">Go Back</button>
-</div>
+<h1>😂 Funny Face Tracker 😂</h1>
+
+<video id="video" autoplay muted></video>
+
+<div id="comment">Looking for a face...</div>
+
+<script src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
 
 <script>
-function showMessage() {
-    alert("Thank you :)");
+const video = document.getElementById('video');
+const commentBox = document.getElementById('comment');
+
+const comments = [
+    "🧐 Ah yes, a human has appeared!",
+    "😂 That face deserves its own TV show!",
+    "🤓 Looking smart today... suspiciously smart.",
+    "😎 Main character detected.",
+    "🍕 Face found. Pizza not found.",
+    "🚀 Ready for launch, Captain Face!",
+    "🐵 99% human, 1% monkey.",
+    "🎭 Comedy level: Maximum.",
+    "🕶️ Too cool for this website.",
+    "💀 My AI brain is confused by this beauty."
+];
+
+async function startVideo() {
+    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    video.srcObject = stream;
 }
+
+Promise.all([
+    faceapi.nets.tinyFaceDetector.loadFromUri(
+        'https://justadudewhohacks.github.io/face-api.js/models'
+    )
+]).then(startVideo);
+
+video.addEventListener('play', () => {
+    setInterval(async () => {
+        const detection = await faceapi.detectSingleFace(
+            video,
+            new faceapi.TinyFaceDetectorOptions()
+        );
+
+        if (detection) {
+            const randomComment =
+                comments[Math.floor(Math.random() * comments.length)];
+            commentBox.textContent = randomComment;
+        } else {
+            commentBox.textContent = "👀 Where did your face go?";
+        }
+    }, 3000);
+});
 </script>
 
 </body>
