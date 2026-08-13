@@ -3,52 +3,196 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>G Mart Live Ezzy😈</title>
-
+<meta name="theme-color" content="#17120e">
+<title>CHAICCINO — Chaya. Chill. Repeat.</title>
 <style>
-body{
-    margin:0;
-    background:#000;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    font-family:Arial,sans-serif;
+:root{
+  --bg:#120f0c; --card:#1c1712; --card2:#241d16; --cream:#f7ead2;
+  --gold:#e6b85c; --orange:#ef8b3a; --muted:#b8a995; --green:#7f9b62;
 }
-
-video{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    background:#000;
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--cream);line-height:1.5}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+nav{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(18,15,12,.82);backdrop-filter:blur(14px);border-bottom:1px solid #ffffff10}
+.navin{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:950;letter-spacing:2px;font-size:1.15rem}
+.logo span{color:var(--gold)}
+.links{display:flex;gap:24px;font-size:.9rem;color:#d8cbbb}
+.links a:hover{color:var(--gold)}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;padding:12px 18px;font-weight:800;cursor:pointer}
+.btn-gold{background:var(--gold);color:#17120e}
+.btn-dark{background:#ffffff0b;border:1px solid #ffffff18;color:var(--cream)}
+.hero{min-height:100vh;display:grid;place-items:center;padding:120px 0 70px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:#d8892d22;filter:blur(80px);top:8%;right:-130px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+.badge{display:inline-block;background:#e6b85c16;color:var(--gold);border:1px solid #e6b85c35;padding:7px 12px;border-radius:999px;font-size:.78rem;font-weight:800;margin-bottom:18px}
+h1{font-size:clamp(3.2rem,8vw,7rem);line-height:.9;letter-spacing:-5px;max-width:700px}
+h1 em{font-style:normal;color:var(--gold)}
+.hero p{margin:22px 0;color:var(--muted);font-size:1.05rem;max-width:570px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.cup{height:430px;border-radius:34px;background:linear-gradient(145deg,#2d2118,#17120e);border:1px solid #ffffff14;display:grid;place-items:center;position:relative;box-shadow:0 30px 80px #0008}
+.glass{width:210px;height:260px;border:3px solid #f6e6ca88;border-top-width:5px;border-radius:18px 18px 38px 38px;position:relative;background:linear-gradient(to top,#a95c26 0 76%,transparent 76%);box-shadow:inset 0 0 30px #fff1,0 20px 40px #0008}
+.glass:after{content:"CHAICCINO";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-90deg);font-size:1.1rem;font-weight:950;letter-spacing:2px;white-space:nowrap;color:#17120e}
+.steam{position:absolute;top:62px;width:120px;height:100px;border-left:3px solid #fff4;border-radius:50%;filter:blur(1px);animation:float 2.5s infinite ease-in-out}
+.steam.two{width:75px;top:38px;transform:translateX(40px);animation-delay:.6s}
+@keyframes float{50%{transform:translateY(-12px) scale(1.05)}}
+section{padding:90px 0}
+.section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:28px}
+.kicker{color:var(--gold);font-size:.75rem;font-weight:900;letter-spacing:2px;text-transform:uppercase}
+h2{font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-2px}
+.sub{color:var(--muted);max-width:550px}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.item{background:var(--card);border:1px solid #ffffff0d;border-radius:22px;padding:22px;transition:.2s}
+.item:hover{transform:translateY(-4px);border-color:#e6b85c45;background:var(--card2)}
+.item-top{display:flex;justify-content:space-between;gap:15px}
+.item h3{font-size:1.05rem}.price{color:var(--gold);font-weight:900;white-space:nowrap}
+.item p{color:var(--muted);font-size:.88rem;margin-top:8px}
+.tag{display:inline-block;margin-top:13px;padding:5px 8px;border-radius:8px;background:#7f9b6220;color:#a8c38b;font-size:.68rem;font-weight:900}
+.special{background:linear-gradient(135deg,#241b12,#16120f);border:1px solid #e6b85c28;border-radius:30px;padding:30px;display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:center}
+.special .big{font-size:clamp(2rem,5vw,4.2rem);line-height:1}
+.special ul{list-style:none;display:grid;gap:11px;color:#d8cbbb}
+.special li:before{content:"✦";color:var(--gold);margin-right:10px}
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px}
+.quote{font-size:1.8rem;font-weight:850;line-height:1.15}
+.kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:25px}
+.kpi div{background:var(--card);border-radius:18px;padding:18px}.kpi b{display:block;font-size:1.5rem;color:var(--gold)}
+.order{background:var(--gold);color:#17120e;border-radius:30px;padding:34px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.order p{opacity:.75}
+footer{padding:35px 0 50px;color:#8f8275;border-top:1px solid #ffffff0d}
+.footerin{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:800px){
+ .links{display:none}.hero-grid,.special,.about{grid-template-columns:1fr}.hero{padding-top:105px}.cup{height:330px}
+ .menu-grid{grid-template-columns:1fr 1fr}
 }
+@media(max-width:520px){h1{letter-spacing:-3px}.menu-grid{grid-template-columns:1fr}.order{align-items:flex-start;flex-direction:column}.kpi{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
+<nav>
+  <div class="container navin">
+    <a class="logo" href="#">CHAI<span>CCINO</span> ☕</a>
+    <div class="links">
+      <a href="#menu">Menu</a><a href="#specials">Specials</a><a href="#story">Our vibe</a>
+    </div>
+    <a class="btn btn-gold" href="#order">Order Chaya</a>
+  </div>
+</nav>
 
-<video id="camera" autoplay playsinline></video>
+<header class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge">KERALA • TEA • GEN Z ENERGY</div>
+      <h1>CHAYA.<br><em>CHILL.</em><br>REPEAT.</h1>
+      <p>Welcome to CHAICCINO — your neighbourhood spot for Kerala-style chaya, loaded snacks, late-night vibes and that one glass you came for.</p>
+      <div class="actions">
+        <a class="btn btn-gold" href="#menu">Explore Menu ↓</a>
+        <a class="btn btn-dark" href="#specials">Today's Special ✦</a>
+      </div>
+    </div>
+    <div class="cup">
+      <div class="steam"></div><div class="steam two"></div>
+      <div class="glass"></div>
+    </div>
+  </div>
+</header>
 
-<script>
-const video = document.getElementById("camera");
+<section id="menu">
+<div class="container">
+  <div class="section-head">
+    <div><div class="kicker">01 / The classics</div><h2>Common Menu</h2></div>
+    <p class="sub">Simple, hot, familiar. The stuff that fixes a bad day.</p>
+  </div>
+  <div class="menu-grid">
+    <article class="item"><div class="item-top"><h3>Kerala Chaya</h3><span class="price">₹15</span></div><p>Strong tea, milk & just the right sweetness.</p><span class="tag">BESTSELLER</span></article>
+    <article class="item"><div class="item-top"><h3>Black Tea</h3><span class="price">₹12</span></div><p>Classic black tea with a clean, bold finish.</p></article>
+    <article class="item"><div class="item-top"><h3>Ginger Chaya</h3><span class="price">₹18</span></div><p>Hot chai with fresh ginger kick.</p></article>
+    <article class="item"><div class="item-top"><h3>Cardamom Chaya</h3><span class="price">₹20</span></div><p>Classic milk tea with fragrant cardamom.</p></article>
+    <article class="item"><div class="item-top"><h3>Sulaimani</h3><span class="price">₹18</span></div><p>Kerala's lemony black tea, served hot.</p></article>
+    <article class="item"><div class="item-top"><h3>Boost</h3><span class="price">₹25</span></div><p>Malty, creamy and childhood-coded.</p></article>
+    <article class="item"><div class="item-top"><h3>Horlicks</h3><span class="price">₹25</span></div><p>Warm, creamy malt drink.</p></article>
+    <article class="item"><div class="item-top"><h3>Fresh Lime</h3><span class="price">₹20</span></div><p>Sweet, tangy and properly refreshing.</p></article>
+    <article class="item"><div class="item-top"><h3>Mint Lime</h3><span class="price">₹25</span></div><p>Lime + mint for instant refresh mode.</p></article>
+  </div>
+</div>
+</section>
 
-async function startCamera() {
-    try {
-        const stream = await navigator.mediaDevices.getUserMedia({
-            video: {
-                facingMode: "environment" // "user" for front camera
-            },
-            audio: false
-        });
+<section id="specials">
+<div class="container">
+  <div class="section-head">
+    <div><div class="kicker">02 / Main character energy</div><h2>CHAICCINO Specials</h2></div>
+  </div>
+  <div class="special">
+    <div>
+      <div class="kicker">Signature drop</div>
+      <div class="big">CHAICCINO<br>CREAM CHAYA</div>
+      <p style="color:var(--muted);margin-top:15px">Our signature creamy chai with a smooth top layer. Made for the camera, approved by the chai gang.</p>
+    </div>
+    <ul>
+      <li>ChaiCCino Cream Chaya — ₹45</li>
+      <li>Caramel Chaya — ₹50</li>
+      <li>Masala Chaya — ₹30</li>
+      <li>Chocolate Chaya — ₹45</li>
+      <li>Cold Chai Latte — ₹55</li>
+      <li>Chai Float — ₹65</li>
+    </ul>
+  </div>
+</div>
+</section>
 
-        video.srcObject = stream;
-    } catch (err) {
-        alert("Camera access denied or unavailable.");
-        console.error(err);
-    }
-}
+<section>
+<div class="container">
+  <div class="section-head">
+    <div><div class="kicker">03 / Kada snacks</div><h2>Kerala Bites</h2></div>
+    <p class="sub">Because chaya without a snack is just a meeting.</p>
+  </div>
+  <div class="menu-grid">
+    <article class="item"><div class="item-top"><h3>Parippu Vada</h3><span class="price">₹15</span></div><p>Crispy lentil fritter, Kerala-style.</p></article>
+    <article class="item"><div class="item-top"><h3>Uzhunnu Vada</h3><span class="price">₹15</span></div><p>Golden, crispy and soft inside.</p></article>
+    <article class="item"><div class="item-top"><h3>Pazham Pori</h3><span class="price">₹20</span></div><p>Classic banana fritter with chaya.</p><span class="tag">ICONIC</span></article>
+    <article class="item"><div class="item-top"><h3>Egg Puffs</h3><span class="price">₹25</span></div><p>Flaky puff with spiced egg filling.</p></article>
+    <article class="item"><div class="item-top"><h3>Chicken Puffs</h3><span class="price">₹35</span></div><p>Flaky, spicy and dangerously easy to finish.</p></article>
+    <article class="item"><div class="item-top"><h3>Unnakaya</h3><span class="price">₹25</span></div><p>Sweet Kerala banana snack with a warm filling.</p></article>
+    <article class="item"><div class="item-top"><h3>Cutlet</h3><span class="price">₹25</span></div><p>Crispy outside, spicy filling inside.</p></article>
+    <article class="item"><div class="item-top"><h3>Beef Cutlet</h3><span class="price">₹35</span></div><p>Kerala-style spiced beef filling.</p></article>
+    <article class="item"><div class="item-top"><h3>Chicken 65</h3><span class="price">₹80</span></div><p>Crispy spicy bites for the full snack attack.</p></article>
+  </div>
+</div>
+</section>
 
-startCamera();
-</script>
+<section id="story">
+<div class="container about">
+  <div>
+    <div class="kicker">04 / Our vibe</div>
+    <h2>Not just tea.<br>It's a mood.</h2>
+  </div>
+  <div>
+    <p class="quote">“Good tea. Good mood. Good people.”</p>
+    <p style="color:var(--muted);margin-top:16px">CHAICCINO brings the Kerala chaya-kada feeling into a fresh, Gen-Z space — familiar flavours, playful specials, good music and zero unnecessary seriousness.</p>
+    <div class="kpi">
+      <div><b>100%</b><span>Chaya energy</span></div>
+      <div><b>∞</b><span>Tea talks</span></div>
+      <div><b>24/7*</b><span>Good mood</span></div>
+    </div>
+  </div>
+</div>
+</section>
 
+<section id="order">
+<div class="container">
+  <div class="order">
+    <div><h2>Ready for a glass?</h2><p>Tap below to connect your WhatsApp ordering link.</p></div>
+    <a class="btn" style="background:#17120e;color:#f7ead2" href="https://wa.me/910000000000" target="_blank">Order on WhatsApp →</a>
+  </div>
+</div>
+</section>
+
+<footer>
+<div class="container footerin">
+  <div><strong>CHAICCINO ☕</strong><br>Kerala-style chaya. Gen-Z vibe.</div>
+  <div>© 2026 CHAICCINO • Prices can be updated</div>
+</div>
+</footer>
 </body>
 </html>
